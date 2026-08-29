@@ -41,6 +41,45 @@ export const DICT: Record<string, { pl: string; en: string }> = {
   "outfit.clickRoll": { pl: "Kliknij Losuj", en: "Click Roll" },
   "outfit.preview": { pl: "Podejrzyj", en: "Preview" },
   "outfit.total": { pl: "Łączna cena zestawu", en: "Total fit price" },
+  "outfit.buyVia": { pl: "Kup przez", en: "Buy via" },
+  "outfit.rerollAll": { pl: "Przelosuj wszystko", en: "Reroll everything" },
+  "outfit.pageTitle1": { pl: "Losowanie", en: "Outfit" },
+  "outfit.pageTitle2": { pl: "outfitów", en: "roll" },
+  "outfit.pageSubtitle": {
+    pl: "Kliknij losowanie, a wybierzemy dla Ciebie kompletny zestaw z katalogu.",
+    en: "Hit roll and we will pick a complete fit from the catalog for you.",
+  },
+
+  "sellers.title1": { pl: "Sklepy", en: "Seller" },
+  "sellers.title2": { pl: "sprzedawców", en: "stores" },
+  "sellers.empty": { pl: "Brak aktywnych sklepów.", en: "No active stores yet." },
+  "sellers.products": { pl: "produktów", en: "products" },
+  "sellers.enter": { pl: "Wejdź →", en: "Enter →" },
+
+  "promos.title1": { pl: "Aktualne", en: "Current" },
+  "promos.title2": { pl: "promocje", en: "deals" },
+  "promos.subtitle": {
+    pl: "Sklepy i produkty z aktywnymi przecenami — dodawane na bieżąco.",
+    en: "Stores and products with active discounts — updated regularly.",
+  },
+  "promos.empty": {
+    pl: "Brak aktywnych promocji. Zajrzyj później.",
+    en: "No active deals right now. Check back later.",
+  },
+  "promos.cta": { pl: "Sprawdź promocję →", en: "See the deal →" },
+
+  "agents.title1": { pl: "Zaufani", en: "Trusted" },
+  "agents.title2": { pl: "agenci", en: "agents" },
+  "agents.subtitle": {
+    pl: "Wybierz agenta, przez którego chcesz robić zakupy — poniżej aktualne kupony i bonusy.",
+    en: "Pick the agent you want to buy through — current coupons and bonuses below.",
+  },
+  "agents.discord": { pl: "Dołącz na Discord", en: "Join our Discord" },
+  "agents.limited": { pl: "Limitowana oferta", en: "Limited offer" },
+  "agents.coupons": { pl: "$450 w kuponach + 40% zniżki", en: "$450 in coupons + 40% off" },
+  "agents.useCodePre": { pl: "Użyj kodu", en: "Use code" },
+  "agents.useCodePost": { pl: "przy rejestracji.", en: "when signing up." },
+  "agents.register": { pl: "Zarejestruj się i odbierz kupony", en: "Sign up and claim coupons" },
 
   "home.kicker": { pl: "Agent & QC Finds", en: "Agent & QC Finds" },
   "home.title1": { pl: "Znajdź swoje", en: "Find your" },
