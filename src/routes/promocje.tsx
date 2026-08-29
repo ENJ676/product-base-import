@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePromos } from "@/lib/store";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/promocje")({
   head: () => ({
@@ -22,20 +23,19 @@ export const Route = createFileRoute("/promocje")({
 
 function PromocjePage() {
   const { data: promos } = usePromos();
+  const { t } = useLang();
   const list = promos ?? [];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-black">
-        Aktualne <span className="text-gradient-brand">promocje</span>
+        {t("promos.title1")} <span className="text-gradient-brand">{t("promos.title2")}</span>
       </h1>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Sklepy i produkty z aktywnymi przecenami — dodawane na bieżąco.
-      </p>
+      <p className="mt-2 text-sm text-muted-foreground">{t("promos.subtitle")}</p>
 
       {list.length === 0 ? (
         <p className="mt-8 rounded-2xl border border-border bg-surface p-10 text-center text-sm text-muted-foreground">
-          Brak aktywnych promocji. Zajrzyj później.
+          {t("promos.empty")}
         </p>
       ) : (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -65,7 +65,7 @@ function PromocjePage() {
                     rel="noreferrer"
                     className="mt-auto rounded-lg gradient-brand px-4 py-2 text-center text-xs font-extrabold uppercase tracking-wide text-surface-deep transition-all hover:brightness-110"
                   >
-                    Sprawdź promocję →
+                    {t("promos.cta")}
                   </a>
                 ) : null}
               </div>

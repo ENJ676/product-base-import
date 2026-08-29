@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useAgents, useSettings, useSocialLinks } from "@/lib/store";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/agenci")({
   head: () => ({
@@ -24,6 +25,7 @@ function AgenciPage() {
   const { data: agents } = useAgents();
   const { data: settings } = useSettings();
   const { data: socials } = useSocialLinks();
+  const { t } = useLang();
   // Discord bierzemy z ręcznie dodanych linków social — nic nie dodaje się automatycznie.
   const discord = (socials ?? []).find((l) =>
     `${l.label} ${l.icon}`.toLowerCase().includes("discord"),
@@ -33,11 +35,9 @@ function AgenciPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-black">
-        Zaufani <span className="text-gradient-brand">agenci</span>
+        {t("agents.title1")} <span className="text-gradient-brand">{t("agents.title2")}</span>
       </h1>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Wybierz agenta, przez którego chcesz robić zakupy — poniżej aktualne kupony i bonusy.
-      </p>
+      <p className="mt-2 text-sm text-muted-foreground">{t("agents.subtitle")}</p>
 
       {discord ? (
         <a
@@ -46,18 +46,18 @@ function AgenciPage() {
           rel="noreferrer"
           className="mt-5 inline-block rounded-xl border border-primary/50 bg-surface px-5 py-2.5 text-xs font-extrabold uppercase tracking-wide text-primary transition-all hover:glow-ring-strong"
         >
-          Dołącz na Discord
+          {t("agents.discord")}
         </a>
       ) : null}
 
       <div className="mt-8 rounded-2xl border border-primary/40 bg-surface p-6 glow-ring">
         <p className="text-sm uppercase tracking-widest text-primary animate-pulse-glow">
-          Limitowana oferta
+          {t("agents.limited")}
         </p>
-        <p className="mt-2 text-2xl font-black">$450 w kuponach + 40% zniżki</p>
+        <p className="mt-2 text-2xl font-black">{t("agents.coupons")}</p>
         <p className="mt-1 text-sm text-muted-foreground">
-          Użyj kodu <span className="font-mono font-bold text-primary">{code}</span> przy
-          rejestracji.
+          {t("agents.useCodePre")} <span className="font-mono font-bold text-primary">{code}</span>{" "}
+          {t("agents.useCodePost")}
         </p>
       </div>
 
@@ -80,7 +80,7 @@ function AgenciPage() {
             ) : null}
             <div>
               <p className="font-bold">{a.name}</p>
-              <p className="text-xs text-muted-foreground">Zarejestruj się i odbierz kupony</p>
+              <p className="text-xs text-muted-foreground">{t("agents.register")}</p>
             </div>
           </a>
         ))}
