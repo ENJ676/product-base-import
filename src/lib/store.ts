@@ -129,7 +129,10 @@ export const useSellers = () =>
   useQuery({
     queryKey: ["sellers"],
     queryFn: async () => {
-      const { data, error } = await supabase.from("sellers").select(SELLER_COLUMNS).order("name");
+      const { data, error } = await supabase
+        .from("sellers_public")
+        .select(SELLER_COLUMNS)
+        .order("name");
       if (error) throw error;
       return (data ?? []) as Seller[];
     },
