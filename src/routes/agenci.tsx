@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useAgents, useSettings, useSocialLinks } from "@/lib/store";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/agenci")({
   head: () => ({
@@ -24,6 +25,7 @@ function AgenciPage() {
   const { data: agents } = useAgents();
   const { data: settings } = useSettings();
   const { data: socials } = useSocialLinks();
+  const { t } = useLang();
   // Discord bierzemy z ręcznie dodanych linków social — nic nie dodaje się automatycznie.
   const discord = (socials ?? []).find((l) =>
     `${l.label} ${l.icon}`.toLowerCase().includes("discord"),
@@ -33,11 +35,9 @@ function AgenciPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-black">
-        Zaufani <span className="text-gradient-brand">agenci</span>
+        {t("agents.title1")} <span className="text-gradient-brand">{t("agents.title2")}</span>
       </h1>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Wybierz agenta, przez którego chcesz robić zakupy — poniżej aktualne kupony i bonusy.
-      </p>
+      <p className="mt-2 text-sm text-muted-foreground">{t("agents.subtitle")}</p>
 
       {discord ? (
         <a

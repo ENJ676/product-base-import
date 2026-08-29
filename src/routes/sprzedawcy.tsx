@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useProducts, useSellers } from "@/lib/store";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/sprzedawcy")({
   head: () => ({
@@ -22,19 +23,19 @@ export const Route = createFileRoute("/sprzedawcy")({
 function SprzedawcyPage() {
   const { data: sellers } = useSellers();
   const { data: products } = useProducts();
+  const { t } = useLang();
   const active = (sellers ?? []).filter((s) => s.active);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-black">
-        Sklepy <span className="text-gradient-brand">sprzedawców</span>
+        {t("sellers.title1")}{" "}
+        <span className="text-gradient-brand">{t("sellers.title2")}</span>
       </h1>
-
-
 
       {active.length === 0 ? (
         <p className="mt-8 rounded-2xl border border-border bg-surface p-10 text-center text-sm text-muted-foreground">
-          Brak aktywnych sklepów.
+          {t("sellers.empty")}
         </p>
       ) : (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -68,13 +69,15 @@ function SprzedawcyPage() {
                     <p className="line-clamp-2 text-xs text-muted-foreground">{s.description}</p>
                   ) : null}
                   <div className="flex items-center justify-between border-t border-border pt-3">
-                    <span className="text-xs text-muted-foreground">{count} produktów</span>
+                    <span className="text-xs text-muted-foreground">
+                      {count} {t("sellers.products")}
+                    </span>
                     <Link
                       to="/sklep/$slug"
                       params={{ slug: s.slug }}
                       className="rounded-lg gradient-brand px-3 py-1.5 text-xs font-bold text-surface-deep"
                     >
-                      Wejdź →
+                      {t("sellers.enter")}
                     </Link>
                   </div>
                 </div>
