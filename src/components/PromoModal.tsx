@@ -23,7 +23,7 @@ export function PromoModal() {
       <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-primary/30 bg-surface p-6 text-center glow-ring">
         <button
           onClick={() => setOpen(false)}
-          aria-label="Zamknij"
+          aria-label={t("promoModal.close")}
           className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground transition-all hover:border-primary hover:text-primary hover:glow-ring-strong"
         >
           ✕
@@ -38,11 +38,11 @@ export function PromoModal() {
         ) : null}
 
         <h2 className="text-xl font-bold leading-snug">
-          Zarejestruj się, aby uzyskać <span className="text-gradient-brand">$450</span> w kuponach
-          oraz 40% zniżki
+          {t("promoModal.title1")} <span className="text-gradient-brand">$450</span>{" "}
+          {t("promoModal.title2")}
         </h2>
         <p className="mt-2 text-sm font-extrabold uppercase tracking-widest text-primary animate-pulse-glow">
-          Limitowana oferta!
+          {t("promoModal.limited")}
         </p>
 
         <div className="mt-5 flex items-center justify-center gap-2">
@@ -57,7 +57,7 @@ export function PromoModal() {
             }}
             className="rounded-lg border border-border bg-secondary px-3 py-2 text-xs font-semibold transition-colors hover:border-primary hover:text-primary"
           >
-            {copied ? "Skopiowano" : "Kopiuj"}
+            {copied ? t("promoModal.copied") : t("promoModal.copy")}
           </button>
         </div>
 
@@ -69,7 +69,7 @@ export function PromoModal() {
           rel="noreferrer"
           className="mt-5 block rounded-xl gradient-brand px-6 py-3 text-sm font-extrabold uppercase tracking-wide text-surface-deep transition-transform hover:scale-[1.02]"
         >
-          Zarejestruj się teraz
+          {t("promoModal.cta")}
         </a>
       </div>
     </div>
