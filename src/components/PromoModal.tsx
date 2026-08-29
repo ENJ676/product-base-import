@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSettings } from "@/lib/store";
+import { useLang } from "@/lib/i18n";
 
 export function PromoModal() {
   const { data: settings } = useSettings();
+  const { t } = useLang();
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 

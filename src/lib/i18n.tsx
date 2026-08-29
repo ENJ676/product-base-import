@@ -81,6 +81,14 @@ export const DICT: Record<string, { pl: string; en: string }> = {
   "agents.useCodePost": { pl: "przy rejestracji.", en: "when signing up." },
   "agents.register": { pl: "Zarejestruj się i odbierz kupony", en: "Sign up and claim coupons" },
 
+  "promoModal.close": { pl: "Zamknij", en: "Close" },
+  "promoModal.title1": { pl: "Zarejestruj się, aby uzyskać", en: "Sign up to get" },
+  "promoModal.title2": { pl: "w kuponach oraz 40% zniżki", en: "in coupons plus 40% off" },
+  "promoModal.limited": { pl: "Limitowana oferta!", en: "Limited offer!" },
+  "promoModal.copy": { pl: "Kopiuj", en: "Copy" },
+  "promoModal.copied": { pl: "Skopiowano", en: "Copied" },
+  "promoModal.cta": { pl: "Zarejestruj się teraz", en: "Sign up now" },
+
   "home.kicker": { pl: "Agent & QC Finds", en: "Agent & QC Finds" },
   "home.title1": { pl: "Znajdź swoje", en: "Find your" },
   "home.title2": { pl: "najlepsze findsy", en: "best finds" },
