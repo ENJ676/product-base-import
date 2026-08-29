@@ -236,14 +236,14 @@ export function OutfitGenerator({
                 rel="noreferrer"
                 className="rounded-lg gradient-brand px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-surface-deep"
               >
-                Kup przez {a.name}
+                {t("outfit.buyVia")} {a.name}
               </a>
             ))}
             <button
               onClick={() => rollAll()}
               className="rounded-lg border border-border px-4 py-2 text-xs font-bold uppercase tracking-wide text-muted-foreground hover:border-primary hover:text-primary"
             >
-              Przelosuj wszystko
+              {t("outfit.rerollAll")}
             </button>
           </div>
         </div>

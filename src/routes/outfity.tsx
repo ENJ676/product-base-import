@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { OutfitGenerator } from "@/components/OutfitGenerator";
 import { ProductModal } from "@/components/ProductModal";
 import { useAgents, useProducts, type Product } from "@/lib/store";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/outfity")({
   head: () => ({
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/outfity")({
 function OutfitPage() {
   const { data: products } = useProducts();
   const { data: agents } = useAgents();
+  const { t } = useLang();
   const [detail, setDetail] = useState<Product | null>(null);
 
   const all = useMemo(() => (products ?? []).filter((p) => !p.seller_id), [products]);
@@ -33,11 +35,10 @@ function OutfitPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-black sm:text-4xl">
-        Losowanie <span className="text-gradient-brand">outfitów</span>
+        {t("outfit.pageTitle1")}{" "}
+        <span className="text-gradient-brand">{t("outfit.pageTitle2")}</span>
       </h1>
-      <p className="mt-2 max-w-xl text-sm text-muted-foreground">
-        Kliknij losowanie, a wybierzemy dla Ciebie kompletny zestaw z katalogu.
-      </p>
+      <p className="mt-2 max-w-xl text-sm text-muted-foreground">{t("outfit.pageSubtitle")}</p>
 
       <div className="mt-8">
         <OutfitGenerator products={all} agents={agents ?? []} onDetails={setDetail} />
